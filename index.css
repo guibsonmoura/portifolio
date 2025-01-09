@@ -23,6 +23,7 @@ main{
 .sobreMim{
     width: 100%;
     display: flex;
+    align-self: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
