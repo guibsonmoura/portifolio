@@ -21,16 +21,15 @@ main{
 }
 
 .sobreMim{
-    
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 30px;
     height: 65%;
     color: white;
     display: flex;
-    justify-content: space-around;
     align-items: start;
     padding-left: 64px;
     padding-right: 64px;
