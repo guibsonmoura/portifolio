@@ -1,77 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-          rel="stylesheet" />
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Guibson Moura - Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <title>Guibson Moura</title>
+        body {
+            background-color: #0D1117;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            font-size: 1.15rem;
+        }
+
+
+        .container {
+            max-width: 9000px;
+            margin-left: 60px;
+            padding-top: 150px;
+            padding-bottom: 100px;
+            padding-right: 60px;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            max-width: 1090px;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.6rem;
+            margin: 2.5em 0 1em 0;
+            font-weight: 600;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 2em 0 1em 0;
+            font-weight: 500;
+        }
+         .tech-badges img {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0.9;
+        }
+
+        .tech-badges img:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        
+
+        .languages {
+            display: inline;
+        }
+
+        .lang-badge {
+            display: inline-block;
+            background: rgba(31, 111, 235, 0.15);
+            padding: 6px 14px;
+            border-radius: 6px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(31, 111, 235, 0.3);
+            transition: all 0.2s ease;
+            color: #58a6ff;
+            font-size: 1rem;
+        }
+
+        .lang-badge:hover {
+            background: rgba(31, 111, 235, 0.25);
+            border-color: #1f6feb;
+            transform: translateY(-1px);
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #79c0ff;
+            text-decoration: underline;
+        }
+
+        .contact-link {
+            display: block;
+            margin-bottom: 0.8em;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateX(5px);
+        }
+
+        .icon {
+            color: #1f6feb;
+            margin-right: 10px;
+            width: 20px;
+            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.6em;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #1f6feb;
+            position: absolute;
+            left: 0;
+        }
+
+        code {
+            background-color: rgba(110, 118, 129, 0.2);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .wave {
+            display: inline-block;
+            animation: wave 3s ease-in-out infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(12deg); }
+            20% { transform: rotate(-8deg); }
+            40%, 100% { transform: rotate(0deg); }
+        }
+
+        .tech-stack {
+            margin-top: 2em;
+            padding: 20px;
+            background: rgba(31, 111, 235, 0.05);
+            border-left: 3px solid #1f6feb;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+
+            .container {
+                margin-left: 30px;
+                padding-top: 80px;
+                padding-right: 30px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        ::selection {
+            background: rgba(31, 111, 235, 0.3);
+            color: #ffffff;
+        }
+
+        .typing {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #333;
+        font-family: monospace;
+        font-size: 1.2rem;
+        animation: typing 2s steps(10, end) infinite, blink 0.7s step-end infinite;
+        }
+
+        @keyframes typing {
+        0% { width: 0; }
+        40% { width: 12ch; }  /* texto completamente digitado */
+        70% { width: 12ch; }  /* pausa antes de apagar */
+        100% { width: 0; }   /* apaga o texto */
+        }
+
+        @keyframes blink {
+        50% { border-color: transparent; }
+        }
+    </style>
 </head>
-<body >
-    <main>
-        
-        <div
-            class="sobreMim"
-            
-        >   
-            
-            <p>👋 Hi, my name is Guibson Moura. I am a professional full-stack software developer with about 5 years of experience, and I have been studying technology, computing, and software development for about 8 years.</p>
-            <br>
-            <br>
-            <br>
-            
-                
-            <p>I was part of the development team at a company where we created solutions for store and business management, such as ERPs and task automation software. At this company, I had the opportunity to create software from scratch—gathering requirements—and also to maintain legacy software.</p>
-        
-            
-            <br>
-            <br>
-            <br>
-            <div class="mainLanguages">
-                <h2>Main languages</h2>
-                <br>
-                <br>
-                <ul>
-                    <li translate="no">Python <img src="icons/icone_python.svg" width="35" height="35"/></li>
-                    <li translate="no">Javascript <img src="icons/js-icone.svg" width="35" height="35"/></li>
-                    <li translate="no">Pascal <img src="icons/p-solid.svg" width="35" height="35"/></li>
-                    
-                </ul>
-            
-            </div>
-            
-            <br>
-            <br>
-            <br>
-            <div
-                class="contatosProjetos"
-            >
-                <h2>Contatos / Projetos  </h2>
-                
-                   
-            
-            </div>
-            <br>
-            <br>
-            <div class="_detalhes_projetos">
-                <ul>
-                    <li translate="no">Email: mouraguibson12@gmail.com <img src="icons/envelope-regular.svg" width="35" height="35"/></li>
-                    <li translate="no">github: <a href="https://github.com/guibsonmoura">https://github.com/guibsonmoura</a> <img src="icons/github-brands-solid.svg" width="35" height="35"/></li>
-                    <li translate="no">stackoverflow: <a href="https://stackoverflow.com/users/17499010/guibson-moura">https://stackoverflow.com/users/17499010/guibson-moura</a><img  src="icons/stack-overflow-brands-solid.svg" width="35" height="35"/></li>
-                    <li translate="no">Linkedin: <a href="https://www.linkedin.com/in/guibson-moura-4124a621a/">https://www.linkedin.com/in/guibson-moura-4124a621a/</a><img  src="icons/linkedin-brands-solid.svg" width="35" height="35"/></li>
-                </ul>
-            </div>
-            <br>
-            <br>
-            
-
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <img src="https://github.com/guibsonmoura.png" alt="Guibson Moura" class="avatar">
+            <h1>Hey, I'm Guibson Moura aqui! <span class="wave">👋</span></h1>
+            <p class="subtitle">Full-Stack Software Developer</p>
         </div>
-    </main>
+
+        <div class="content">
+            <p>I’m a full-stack developer with solid experience across frontend and backend, and a real passion for clean, scalable, and well-structured architectures.</p>
+
+            <p>I organise my projects in a way that keeps things clear, easy to grow, and simple to maintain over time. I’ve worked with different styles and development structures, always aiming to shape the project’s architecture in the best way possible to ensure quality, organisation, and smooth evolution..</p>
+
+           
+           
+            
+            <h3>Languages I’ve worked with</h3>
+            <p class="tech-badges">
+                <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
+                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+                <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust">
+                <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+                <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C">
+                <img src="https://img.shields.io/badge/Pascal-ffffff?style=for-the-badge&logo=delphi&logoColor=red" alt="Pascal">
+                <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
+                <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+            </p>
+
+            <h3>Some frameworks and tools I’m pretty good with</h3>
+            <p class="tech-badges">
+                <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
+                <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native">
+                <img src="https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
+                <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+                <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+                <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+                <img src="https://img.shields.io/badge/Lazarus-ffcc00?style=for-the-badge&logo=delphi&logoColor=black" alt="Lazarus">
+                <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+                <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash">
+            </p>
+
+            <h3>Databases I’ve worked with</h3>
+            <p class="tech-badges">
+                <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                <img src="https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+                <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+                <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+                <img src="https://img.shields.io/badge/Firebird-E80C0C?style=for-the-badge&logo=firebird&logoColor=white" alt="Firebird">
+            </p>
+
+            <p>Right now, I’m working on projects with **Flutter**, building automations in **Python**, and developing modern apps using **Next.js**, **FastAPI**, and **Node.js**. I’ve also been diving into **AI agents**, exploring smart ways to blend automation with machine learning. I’m always keeping an eye on new tech and trends to keep evolving and delivering fresh, innovative solutions.</p>
+
+            <h2>Featured Projects</h2>
+            <p class="typing">Coming soon...</p>
+            <h2>Wanna get in touch?</h2>
+            
+            <p>You can find me on the following networks and platforms:</p>
+
+            <p class="contact-link">
+                <i class="fas fa-envelope icon"></i>
+                Email: <a href="mailto:mouraguibson12@gmail.com">mouraguibson12@gmail.com</a>
+            </p>
+            
+            <p class="contact-link">
+                <i class="fab fa-github icon"></i>
+                GitHub: <a href="https://github.com/guibsonmoura" target="_blank">github.com/guibsonmoura</a>
+            </p>
+            
+                        
+            <p class="contact-link">
+                <i class="fab fa-linkedin icon"></i>
+                LinkedIn: <a href="https://www.linkedin.com/in/guibson-moura-4124a621a/" target="_blank">linkedin.com/in/guibson-moura</a>
+            </p>
+            <p class="contact-link">
+                <i class="fab fa-instagram icon"></i>
+                Instagram: <a href="https://www.instagram.com/moura.guibson" target="_blank">@moura.guibson</a>
+            </p>
+
+
+            <h2>Projects and contributions</h2>
+            
+            <p>Check out my repositories on GitHub to see the projects I’m working on. Always open to collaborations and technical discussions about software development!</p>
+
+            <p style="margin-top: 3em; color: #272822; font-size: 0.95rem;">
+                <code>printf(You can give it a LIKE by clicking the little star on her <a href="" target="_blank">repo</a>.)</code>
+            </p>
+            
+        </div>
+    </div>
 </body>
 </html>
